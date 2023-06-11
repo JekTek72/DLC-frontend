@@ -3,31 +3,31 @@ export type CreateUserParams = {
     firstName: string;
     lastName: string;
     password: string;
-};
-
-export type UserCredentialsParams = {
+  };
+  
+  export type UserCredentialsParams = {
     username: string;
     password: string;
-};
-
-export type Profile = {
+  };
+  
+  export type Profile = {
     id: number;
     about?: string;
     avatar?: string;
     banner?: string;
-}
-
-export type UserPresence = {
+  };
+  
+  export type UserPresence = {
     id: number;
     statusMessage?: string;
     showOffline: boolean;
-}
-
-export type UserPeer = {
+  };
+  
+  export type UserPeer = {
     id: string;
-}
-
-export type User = {
+  };
+  
+  export type User = {
     id: number;
     username: string;
     email: string;
@@ -36,111 +36,112 @@ export type User = {
     profile?: Profile;
     presence?: UserPresence;
     peer: UserPeer;
-}
-
-export type Conversation = {
+  };
+  
+  export type Conversation = {
     id: number;
     creator: User;
     recipient: User;
     createdAt: string;
     lastMessageSent: MessageType;
-}
-
-export type CreateConversationParams = {
+  };
+  
+  export type CreateConversationParams = {
     username: string;
     message: string;
-}
-
-export type MessageAttachment = {
+  };
+  
+  export type MessageAttachment = {
     key: string;
-}
-
-export type MessageType = {
+  };
+  
+  export type MessageType = {
     id: number;
     content?: string;
     createdAt: string;
     author: User;
     conversation: Conversation;
     attachments?: MessageAttachment[];
-}
-
-export type GroupMessageType = {
+  };
+  
+  export type GroupMessageType = {
     id: number;
     content?: string;
     createdAt: string;
     author: User;
     group: Group;
     attachments?: MessageAttachment[];
-}
-
-export type FetchMessagePayload = {
+  };
+  
+  export type FetchMessagePayload = {
+    conversationId: number;
     id: number;
     messages: MessageType[];
-}
-
-export type FetchGroupMessagePayload = {
+  };
+  
+  export type FetchGroupMessagePayload = {
     id: number;
     messages: GroupMessageType[];
-}
-
-export type MessageEventPayload = {
+  };
+  
+  export type MessageEventPayload = {
     message: MessageType;
     conversation: Conversation;
-}
-
-export type CreateMessageParams = {
+  };
+  
+  export type CreateMessageParams = {
     id: number;
     content: string;
-}
-
-export type ConversationMessage = {
+  };
+  
+  export type ConversationMessage = {
     id: number;
     messages: MessageType[];
-}
-
-export type GroupMessage = {
+  };
+  
+  export type GroupMessage = {
     id: number;
     messages: GroupMessageType[];
-}
-
-export type DeleteMessageParams = {
+  };
+  
+  export type DeleteMessageParams = {
     id: number;
     messageId: number;
-}
-
-export type DeleteGroupMessageParams = {
+  };
+  
+  export type DeleteGroupMessageParams = {
     id: number;
     messageId: number;
-}
-
-export type DeleteMessageResponse = {
+  };
+  
+  export type DeleteMessageResponse = {
     conversationId: number;
     messageId: number;
-}
-
-export type DeleteGroupMessageResponse = {
+  };
+  
+  export type DeleteGroupMessageResponse = {
     groupId: number;
     messageId: number;
-}
-
-export type MessagePanelBodyProps = {
+  };
+  
+  export type MessagePanelBodyProps = {
     isTyping: boolean;
-}
-
-export type EditMessagePayload = {
+  };
+  
+  export type EditMessagePayload = {
     id: number;
     messageId: number;
     content: string;
-}
-
-export type ConversationType = 'group' | 'private';
-
-export type ConversationTypeData = {
+  };
+  
+  export type ConversationType = 'group' | 'private';
+  
+  export type ConversationTypeData = {
     type: ConversationType;
     label: string;
-}
-
-export type Group = {
+  };
+  
+  export type Group = {
     id: number;
     title?: string;
     users: User[];
@@ -151,9 +152,9 @@ export type Group = {
     lastMessageSent: MessageType;
     lastMessageSentAt: Date;
     avatar?: string;
-}
-
-export type GroupMessageEventPayload = {
+  };
+  
+  export type GroupMessageEventPayload = {
     message: GroupMessageType;
     group: Group;
   };
