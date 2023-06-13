@@ -17,3 +17,5 @@ import {
     MessagePanelStyle,
     MessageTypingStatus,
 } from '../../utils/styles';
+import { MessageAttachmentContainer } from "./attachments/MessageAttachmentContainer";
+import { MessageContainer } from "./MessageContainer";
